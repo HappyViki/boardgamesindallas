@@ -16,7 +16,7 @@ const groups = {
             city: "The Colony",
             address: "5733 TX-121 Ste. 230, The Colony, TX 75056",
             day: "Tuesday",
-            weekNum: [1, 2, 3, 4, 5, 6]
+            weekNums: [1, 2, 3, 4, 5, 6]
         },
         {
             time: "6:30-10pm",
@@ -24,7 +24,7 @@ const groups = {
             city: "The Colony",
             address: "5733 TX-121 Ste. 230, The Colony, TX 75056",
             day: "Friday",
-            weekNum: [1, 3, 5]
+            weekNums: [1, 3, 5]
         },
         {
             time: "12-11pm",
@@ -32,7 +32,7 @@ const groups = {
             city: "The Colony",
             address: "5733 TX-121 Ste. 230, The Colony, TX 75056",
             day: "Saturday",
-            weekNum: [4]
+            weekNums: [4]
         }
         ]
     },
@@ -45,7 +45,7 @@ const groups = {
             city: "Richardson",
             address: "1411 E Renner Rd, Richardson, TX 75082",
             day: "Sunday",
-            weekNum: [1, 2, 3, 4, 5, 6]
+            weekNums: [1, 2, 3, 4, 5, 6]
         }]
     },
     "DFW Boardgamers": {
@@ -57,7 +57,7 @@ const groups = {
             city: "Plano",
             address: "8201 Preston Rd, Plano, TX 75024",
             day: "Thursday",
-            weekNum: [1, 2, 3, 4, 5, 6]
+            weekNums: [1, 2, 3, 4, 5, 6]
         },
         {
             time: "10am-11pm",
@@ -65,7 +65,7 @@ const groups = {
             city: "Plano",
             address: "8201 Preston Rd, Plano, TX 75024",
             day: "Saturday",
-            weekNum: [1]
+            weekNums: [1]
         },
         ]
     },
@@ -78,7 +78,7 @@ const groups = {
             city: "Carrollton",
             address: "1700 Keller Springs Rd, Carrollton, TX 75006",
             day: "Wednesday",
-            weekNum: [2, 4, 6]
+            weekNums: [2, 4, 6]
         },
         {
             time: "7:30pm-12am",
@@ -86,7 +86,7 @@ const groups = {
             city: "Plano",
             address: "3000 Custer Rd #310, Plano, TX 75075",
             day: "Saturday",
-            weekNum: [3]
+            weekNums: [3]
         }
         ]
     },
@@ -99,7 +99,7 @@ const groups = {
             city: "Carrollton",
             address: "",
             day: "Saturday",
-            weekNum: [2, 4, 6]
+            weekNums: [2, 4, 6]
         },]
     },
     "Boards & Brews - Dallas": {
@@ -111,7 +111,7 @@ const groups = {
             city: "Dallas",
             address: "7701 Lemmon Ave Suite 200, Dallas, TX 75209",
             day: "Wednesday",
-            weekNum: [1]
+            weekNums: [1]
         },]
     },
     "Game Night Dallas": {
@@ -121,27 +121,4 @@ const groups = {
     }
 }
 
-const events = Object.values(groups).flatMap(group => group.events.map((event) => ({
-    ...event,
-    groupName: group.name,
-    groupLink: group.link
-}))).map((event, id) => ({
-    ...event,
-    id
-}))
-
-
-const eventsByDay = events.reduce(
-    (result, event, index) => {
-        event ? result[event.day].push(event) : ""
-        return result
-    }, {
-    'Sunday': [],
-    'Monday': [],
-    'Tuesday': [],
-    'Wednesday': [],
-    'Thursday': [],
-    'Friday': [],
-    'Saturday': []
-}
-)
+const events = Object.values(groups).flatMap(group => group.events.map(event => ({ ...event, groupName: group.name, groupLink: group.link}))).map((event,id) => ({...event, id}))

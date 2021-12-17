@@ -17,7 +17,7 @@ const modalTemp = (event) => {
 			<div><b>Address:</b><br/>${event.address ? event.address : "Check event page"}</div>
 		</div>
 		<div class="modal-footer">
-			<a class="btn btn-primary" href="${event.groupLink}events/">Double check events page</a>
-			${event.address ? `<a class="btn btn-secondary" href="${mapsLink}">Get directions!</a>` : ""}
+			<a class="btn btn-danger" href="${event.groupLink}events/">Double check events page</a>
+			${event.address ? `<a class="btn btn-primary" href="${mapsLink}">Get directions!</a>` : ""}
 		</div>`
 }
